@@ -1,3 +1,4 @@
+import Carousel from "@/components/Carousel";
 import { Button } from "@/components/ui/button";
 import { stripe } from "@/lib/stripe";
 import Image from "next/image";
@@ -24,14 +25,9 @@ const Home = async () => {
             <Button
               asChild
               variant="default"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 bg-black text-white"
+              className="inline-flex w-40 items-center px-16 space-x-5 py-2.5 text-sm font-medium text-black bg-white border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition duration-200"
             >
-              <Link
-                href="/products"
-                className="inline-flex items-center justify-center rounded-full px-6 py-3"
-              >
-                Browse All Products
-              </Link>
+              <Link href="/products">Shop Products for ₹</Link>
             </Button>
           </div>
           <Image
@@ -43,6 +39,7 @@ const Home = async () => {
           />
         </div>
       </section>
+      <Carousel products={products.data} />
     </div>
   );
 };
